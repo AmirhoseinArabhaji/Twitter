@@ -51,7 +51,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
     LOGIN_WITH_THESE_FIELDS = (USERNAME_FIELD, EMAIL_FIELD,)
 
-    # objects = UserManager()
+    objects = UserManager()
 
     class Meta:
         ordering = ('-date_joined',)
