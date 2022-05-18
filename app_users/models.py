@@ -41,7 +41,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     header = models.ImageField(upload_to=user_header_upload_path, null=True, blank=True)
     bio = models.CharField(_('tweeter bio'), max_length=256, blank=True, null=True)
 
-    birth_date = models.DateField(_('birth date'))
+    birth_date = models.DateField(_('birth date'), null=True)
 
     metadata = models.JSONField(null=True, blank=True)
 
