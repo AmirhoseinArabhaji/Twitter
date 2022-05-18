@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
-    # third party packages
 
+    # third party packages
     'rest_framework',
+    'django_filters',
     'cacheops',
 
     # project apps
