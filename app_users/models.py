@@ -26,7 +26,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     type = models.CharField(max_length=64, choices=UserTypes.choices, default=UserTypes.NORMAL, db_index=True)
 
-    is_active = models.BooleanField(_('active'), default=False)
+    is_active = models.BooleanField(_('active'), default=True)
     is_private = models.BooleanField(_('private'), default=False)
     is_ban = models.BooleanField(_('ban'), default=False)
 
