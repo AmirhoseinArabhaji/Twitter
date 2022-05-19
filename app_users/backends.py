@@ -13,6 +13,8 @@ class PasswordAuthenticationBackend(backends.ModelBackend):
                 user_lookup_dict = {'username': username}
             elif email:
                 user_lookup_dict = {'email': email}
+            else:
+                return None
 
             try:
                 user = User._default_manager.get(**user_lookup_dict)
