@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
 
+    'django_extensions',
+
     # third party packages
     'rest_framework',
     'django_filters',
@@ -46,6 +48,12 @@ INSTALLED_APPS = [
     # project apps
     'app_users',
     'app_upload',
+    'app_twitter',
+    'app_bookmark',
+    'app_like',
+    'app_notification',
+    'app_vote',
+    'utilities',
 ]
 
 MIDDLEWARE = [
@@ -109,8 +117,11 @@ CACHEOPS_DEFAULTS = {
 CACHEOPS_REDIS = f"{REDIS_URL}/1"
 
 CACHEOPS = {
-
+    '*.*': {'ops': (), 'timeout': 60 * 60},
 }
+
+CACHEOPS_ENABLED = env.bool('CACHEOPS_ENABLED', default=False)
+RUNNING_TASK_ASYNC = env.bool('RUNNING_TASK_ASYNC', default=False)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

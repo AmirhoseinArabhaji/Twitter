@@ -69,7 +69,7 @@ class UserRegisterSerializer(serializers.HyperlinkedModelSerializer):
         phone_number = attrs.get('phone')
         email = attrs.get('email')
 
-        if not phone_number or not email:
+        if not phone_number and not email:
             raise ValidationError({'message': _('email or phone number is required')})
 
         if User.objects.filter(username=username).exists():
@@ -98,7 +98,7 @@ class BaseTokenAuthenticationSerializer(serializers.Serializer):
     phone = serializers.CharField(max_length=11, required=False, write_only=True, validators=[phone_number_validator])
 
     email = serializers.EmailField(required=False, write_only=True)
-    password = serializers.CharField(min_length=6, required=True, write_only=True)
+    password = serializers.CharField(min_length=1, required=True, write_only=True)
 
     class Meta:
         fields = (

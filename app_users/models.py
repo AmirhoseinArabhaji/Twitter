@@ -50,6 +50,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'username'
     EMAIL_FIELD = 'email'
     LOGIN_WITH_THESE_FIELDS = (USERNAME_FIELD, EMAIL_FIELD,)
+    REQUIRED_FIELDS = ['email']
 
     objects = UserManager()
 

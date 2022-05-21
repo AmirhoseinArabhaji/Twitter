@@ -16,7 +16,7 @@ class UserManager(BaseUserManager):
 
     def _create_user(self, username, password, is_superuser, is_active, is_staff, email=None, phone=None,
                      **extra_fields):
-        if not email or not phone:
+        if not email and not phone:
             raise ValueError(_('Email or phone is required.'))
 
         if not username:
