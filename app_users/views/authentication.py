@@ -5,7 +5,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenViewBase
-# from utilities.mixins import LazyAuthenticationMixin
+from utilities.mixins import LazyAuthenticationMixin
 
 from app_users.serializers import authentication
 from app_users.serializers.authentication import *
@@ -13,7 +13,7 @@ from app_users.serializers.authentication import *
 User = get_user_model()
 
 
-class UserLoginAPIView(generics.CreateAPIView):
+class UserLoginAPIView(LazyAuthenticationMixin, generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = authentication.UserLoginSerializer
     permission_classes = (AllowAny,)
@@ -40,7 +40,7 @@ class UserLoginAPIView(generics.CreateAPIView):
         })
 
 
-class UserRegisterAPIView(generics.CreateAPIView):
+class UserRegisterAPIView(LazyAuthenticationMixin, generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = authentication.UserRegisterSerializer
     permission_classes = (AllowAny,)
