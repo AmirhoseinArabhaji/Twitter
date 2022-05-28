@@ -69,12 +69,11 @@ class TweetViewSet(ModelViewSet):
             if search_term:
                 return qs.filter(hashtags__name__contains=search_term).cache()
 
-        elif self.request.user.is_authenticated and type(filter_by) is str and filter_by.lower() == 'following':
-
+        if self.request.user.is_authenticated and type(filter_by) is str and filter_by.lower() == 'following':
             followings = Fellowship.objects.filter(follower=self.request.user).cache() \
                 .values_list('following', flat=True)
 
-            return qs.filter(author__in=followings).cache()
+            return qs.filter(Q(author__in=followings) | Q(author=self.request.user)).cache()
 
         return qs.cache()
 
