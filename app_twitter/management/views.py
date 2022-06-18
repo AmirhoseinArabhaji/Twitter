@@ -5,7 +5,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from app_twitter.models import Tweet, Hashtag
 from app_twitter.serializers import tweet
-from utilities.pagination import PageNumberPagination
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAdminUser
 
 User = get_user_model()

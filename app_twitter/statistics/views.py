@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from app_like.models import Like
 from app_twitter.models import Tweet, Hashtag, Fellowship
 from utilities.date import get_n_unit_ago
-from utilities.pagination import PageNumberPagination
+from rest_framework.pagination import PageNumberPagination
 
 
 class TwitterStatistics(ListAPIView):
