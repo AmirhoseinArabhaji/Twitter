@@ -171,5 +171,3 @@ class AdminTokenObtainPairSerializer(BaseTokenAuthenticationSerializer):
                 {'message': _('No admin account found with the given credentials')})
 
         return self.get_token(user)
-
-# TODO Forgot password, reset password

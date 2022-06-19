@@ -31,8 +31,6 @@ class TweetViewSet(ModelViewSet):
     permission_classes = [IsOwnerOrReadOnly, IsAuthenticated]
 
     def get_queryset(self):
-        # TODO : this method should be clear
-
         if self.action == 'retrieve':
             return Tweet.objects.select_related('author').all()
 

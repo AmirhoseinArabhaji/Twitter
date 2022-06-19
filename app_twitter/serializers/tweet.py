@@ -178,7 +178,6 @@ class TweetSerializer(serializers.ModelSerializer):
                     timeout=60 * 60 * 24 * 365).first():
 
                 item_class = content_type.model_class()
-                # TODO: Validate pk type
 
                 if item_class.objects.filter(pk=related_item_pk).first():
                     tweet_instance.related_item_content_type = content_type

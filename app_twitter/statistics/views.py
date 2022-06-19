@@ -21,8 +21,6 @@ class TwitterStatistics(ListAPIView):
     pagination_class = PageNumberPagination
 
     def list(self, request, *args, **kwargs):
-        # TODO: Caching Statistics to a database model
-
         today_beginning = make_aware(datetime.datetime.combine(datetime.date.today(), datetime.time.min))
         today_end = make_aware(datetime.datetime.combine(datetime.date.today(), datetime.time.max))
 

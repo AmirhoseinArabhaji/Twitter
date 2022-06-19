@@ -5,8 +5,6 @@ from django.conf import settings
 def pickle_input(function):
     def wrapper(*args, **kwargs):
 
-        # TODO: Handling apply_async based on each task
-
         celery_kwargs = kwargs.pop('celery_kwargs', {})
         running_async = celery_kwargs.pop('apply_async', settings.RUNNING_TASK_ASYNC)
 
