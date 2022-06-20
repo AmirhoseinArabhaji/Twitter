@@ -1,12 +1,11 @@
 from django.db import transaction
 from django.db.models import F
-from django.utils.decorators import method_decorator
 from rest_framework.generics import UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from app_twitter.permissions import IsPrivate, IsBlocked, BlockedYou, UsernameIsActive
 from app_vote.models import Choice, UserVoteHistory
-from app_vote.permissions import *
 from app_vote.serializers import ChoiceVotingSerializer, VoteSerializer
 
 
