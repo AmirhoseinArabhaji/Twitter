@@ -21,4 +21,5 @@ urlpatterns = [
     path('users/', include('app_users.urls')),
     path('notifications/', include('app_notification.urls')),
     path('tweets/', include('app_twitter.urls')),
+    path('vote/', include('app_vote.urls')),
 ]
