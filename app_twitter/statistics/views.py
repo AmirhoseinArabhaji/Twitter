@@ -1,17 +1,16 @@
 import datetime
 
-from django.contrib.contenttypes.models import ContentType
 from django.db.models import Count, DateField
 from django.db.models.functions import Cast
 from django.utils.timezone import make_aware
 from rest_framework.generics import ListAPIView
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 
 from app_like.models import Like
 from app_twitter.models import Tweet, Hashtag, Fellowship
 from utilities.date import get_n_unit_ago
-from rest_framework.pagination import PageNumberPagination
 
 
 class TwitterStatistics(ListAPIView):
