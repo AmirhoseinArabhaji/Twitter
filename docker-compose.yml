@@ -29,25 +29,6 @@ services:
         volumes:
             - redis-data:/data
 
-#    django:
-#        container_name: "twitter-django"
-#        build: .
-#        command: "python manage.py runserver 0.0.0.0:8000"
-#        volumes:
-#            - ./:/usr/src/app
-#        ports:
-#            - "8000:8000"
-#        expose:
-#            - 8000
-#        env_file:
-#            - ./twitter/.env
-#        environment:
-#            PYTHONUNBUFFERED: 1
-#            DJANGO_SETTINGS_MODULE: twitter.settings
-#        depends_on:
-#            - postgres
-#            - redis
-
 volumes:
     postgres-data:
     redis-data:
