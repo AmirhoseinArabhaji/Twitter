@@ -18,7 +18,6 @@ class Hashtag(models.Model):
     usage_count = models.PositiveBigIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
 
-
     class Meta:
         ordering = ('-usage_count',)
 

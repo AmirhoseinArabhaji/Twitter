@@ -25,10 +25,7 @@ class TwitterStatistics(ListAPIView):
         today_end = make_aware(datetime.datetime.combine(datetime.date.today(), datetime.time.max))
 
         today_statistics = {
-            "likes_count": Like.objects.filter(
-                content_type=ContentType.objects.get_for_model(model=Tweet),
-                created_at__range=[today_beginning, today_end]).cache().count(),
-
+            "likes_count": Like.objects.filter(created_at__range=[today_beginning, today_end]).cache().count(),
             "tweets_count": Tweet.objects.filter(created_at__range=[today_beginning, today_end]).cache().count(),
             "hashtags_count": Hashtag.objects.filter(updated_at__range=[today_beginning, today_end]).cache().count(),
             "following_count": Fellowship.objects.filter(
@@ -46,7 +43,6 @@ class TwitterStatistics(ListAPIView):
             annotate(count=Count('date')).values('date', 'count').order_by().cache()
 
         likes_chart = Like.objects.filter(
-            content_type=ContentType.objects.get_for_model(model=Tweet),
             created_at__range=[thirty_days_ago, today_end]). \
             annotate(date=Cast('created_at', DateField())).values('date'). \
             annotate(count=Count('date')).values('date', 'count').order_by().cache()

@@ -48,6 +48,7 @@ urlpatterns = [
          name='conversations_messages'),
 
     path('vote/', include('app_vote.urls')),
+    path('statistics/', include('app_twitter.statistics.urls')),
 
     path('', include(router.urls)),
 ]
