@@ -8,7 +8,6 @@ User = get_user_model()
 
 
 class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = User
         fields = (
