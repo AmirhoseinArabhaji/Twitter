@@ -18,9 +18,6 @@ class HashTagSerializer(serializers.ModelSerializer):
         fields = (
             'name',
             'count',
-            'brand',
-            'model',
-            'trim',
         )
 
         read_only_fields = fields

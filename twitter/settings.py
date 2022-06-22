@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
     # project apps
     'app_users',
-    'app_upload',
     'app_twitter',
     'app_bookmark',
     'app_like',

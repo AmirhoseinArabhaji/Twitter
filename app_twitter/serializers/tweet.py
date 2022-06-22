@@ -8,7 +8,6 @@ from app_twitter.models import Tweet, MentionUsedInTweets, Hashtag, MutedUsers
 from app_twitter.serializers.profile import AuthorSerializer, TweetAuthorSerializer
 from app_twitter.tasks.notifications import removing_mentions, saving_mentions
 from app_twitter.tasks.pre_process import saving_hashtags
-from app_upload.validators import twitter_image_url_validator
 from app_vote.serializers import VoteSerializer
 
 
@@ -63,7 +62,6 @@ class TweetSerializer(serializers.ModelSerializer):
 
     images = serializers.ListField(max_length=10, allow_empty=True, required=False,
                                    child=serializers.URLField(allow_blank=False, allow_null=False),
-                                   validators=[twitter_image_url_validator],
                                    )
 
     vote = VoteSerializer(many=False, required=False)
